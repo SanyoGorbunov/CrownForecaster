@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrownForecaster.Backend.ML", "CrownForecaster.Backend.ML\CrownForecaster.Backend.ML.csproj", "{4AA168D6-7DDC-4ABA-854E-798B079DCF65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Backend.ML", "CrownForecaster.Backend.ML\CrownForecaster.Backend.ML.csproj", "{4AA168D6-7DDC-4ABA-854E-798B079DCF65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{2FE202F3-1957-4BEC-ACC3-AB088A77F97B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Backend.TestApp", "CrownForecaster.Backend.TestApp\CrownForecaster.Backend.TestApp.csproj", "{2FE202F3-1957-4BEC-ACC3-AB088A77F97B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
