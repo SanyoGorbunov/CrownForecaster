@@ -9,7 +9,7 @@ var fxForecaster = serviceProvider.GetRequiredService<IFxForecaster>();
 
 IEnumerable<FxRate> GenerateFxRates()
 {
-    decimal baselineValue = 25.5m;
+    float baselineValue = 25.5f;
     var random = new Random();
 
     DateOnly startDate = DateOnly.FromDateTime(DateTime.UtcNow).AddMonths(-3);
@@ -18,13 +18,16 @@ IEnumerable<FxRate> GenerateFxRates()
     var fxRates = new List<FxRate>();
     while (startDate <= endDate)
     {
-        fxRates.Add(new FxRate(startDate, baselineValue + (decimal)((random.NextDouble() - 0.5) * 3)));
+        fxRates.Add(new FxRate {
+            Date = startDate.ToDateTime(TimeOnly.MinValue),
+            Rate = baselineValue + (float)((random.NextDouble() - 0.5) * 3)
+        });
         startDate = startDate.AddDays(1);
     }
 
     return fxRates;
 }
 
-var forecastedFxRate = fxForecaster.Forecast(GenerateFxRates(), DateOnly.FromDateTime(DateTime.UtcNow).AddMonths(1));
+var forecastedFxRate = fxForecaster.Forecast(GenerateFxRates(), 31);
 
 Console.WriteLine(forecastedFxRate);

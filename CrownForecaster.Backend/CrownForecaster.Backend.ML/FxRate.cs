@@ -1,3 +1,13 @@
 ﻿namespace CrownForecaster.Backend.ML;
 
-public record FxRate(DateOnly Date, decimal Rate);
+public class FxRate
+{
+    public DateTime Date { get; set; }
+
+    public float Rate { get; set; }
+};
+
+public class FxRateForecast
+{
+    public float[] Forecast { get; set; }
+}
