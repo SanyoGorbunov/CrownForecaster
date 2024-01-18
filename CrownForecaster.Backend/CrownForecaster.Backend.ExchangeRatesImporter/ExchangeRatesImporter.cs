@@ -5,10 +5,10 @@ namespace CrownForecaster.Backend.ExchangeRatesImporter;
 internal class ExchangeRatesImporter : IExchangeRatesImporter
 {
     private IExchangeRatesApiClient _exchangeRatesApiClient;
-    private IFxRateRepository _fxRateRepository;
+    private IFxRateHistoricalDataFileWriter _fxRateRepository;
     private string _exchangeRatesApiAccessKey;
 
-    public ExchangeRatesImporter(IExchangeRatesApiClient exchangeRatesApiClient, IFxRateRepository fxRateRepository, string? exchangeRatesApiAccessKey)
+    public ExchangeRatesImporter(IExchangeRatesApiClient exchangeRatesApiClient, IFxRateHistoricalDataFileWriter fxRateRepository, string? exchangeRatesApiAccessKey)
     {
         _exchangeRatesApiClient = exchangeRatesApiClient;
         _fxRateRepository = fxRateRepository;
@@ -32,6 +32,8 @@ internal class ExchangeRatesImporter : IExchangeRatesImporter
             historicalDate = historicalDate.AddDays(1);
         }
 
-        await _fxRateRepository.SaveFxRates(fxRates);
+        var historicalData = FxRateHistoricalData.CreateFromFxRates(fxRates);
+
+        await _fxRateRepository.WriteToFile(historicalData, path);
     }
 }
