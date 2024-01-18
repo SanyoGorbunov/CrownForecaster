@@ -1,8 +1,10 @@
-﻿using CrownForecaster.Backend.ML;
+﻿using CrownForecaster.Backend.ExchangeRatesApiClient;
+using CrownForecaster.Backend.ML;
 using Microsoft.Extensions.DependencyInjection;
 
 var serviceProvider = new ServiceCollection()
     .RegisterFxForecaster()
+    .RegisterExchangeRatesApiClient()
     .BuildServiceProvider();
 
 var fxForecaster = serviceProvider.GetRequiredService<IFxForecaster>();

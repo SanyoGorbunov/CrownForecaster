@@ -6,8 +6,3 @@ public class FxRate
 
     public float Rate { get; set; }
 };
-
-public class FxRateForecast
-{
-    public float[] Forecast { get; set; }
-}
