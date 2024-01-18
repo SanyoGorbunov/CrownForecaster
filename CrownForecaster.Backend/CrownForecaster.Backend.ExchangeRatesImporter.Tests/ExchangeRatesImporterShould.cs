@@ -5,14 +5,24 @@ namespace CrownForecaster.Backend.ExchangeRatesImporter.Tests
 {
     public class ExchangeRatesImporterShould
     {
-        private Mock<IExchangeRatesApiClient> _apiClientMock = new Mock<IExchangeRatesApiClient>();
+        private const string _testAccessKey = "some-access-key";
+
+        private Mock<IExchangeRatesApiClient> _apiClientMock = new Mock<IExchangeRatesApiClient>(MockBehavior.Strict);
+        private Mock<IFxRateRepository> _fxRateRepository = new Mock<IFxRateRepository>();
 
         [Fact]
         public async Task Import()
         {
             var importer = CreateImporter();
 
-            await importer.ImportExchangeRates(new DateOnly(2023, 1, 1), new DateOnly(2024, 1, 1), "somePath.json");
+            var mockSequence = new MockSequence();
+            _apiClientMock.InSequence(mockSequence).Setup(_ => _.GetHistoricalFxRateWithBaseEur(CurrencyCode.CZK, new DateOnly(2023, 1, 3), _testAccessKey)).ReturnsAsync(24.5m);
+            _apiClientMock.InSequence(mockSequence).Setup(_ => _.GetHistoricalFxRateWithBaseEur(CurrencyCode.CZK, new DateOnly(2023, 1, 4), _testAccessKey)).ReturnsAsync(25.5m);
+            _apiClientMock.InSequence(mockSequence).Setup(_ => _.GetHistoricalFxRateWithBaseEur(CurrencyCode.CZK, new DateOnly(2023, 1, 5), _testAccessKey)).ReturnsAsync(26.5m);
+
+            await importer.ImportExchangeRates(new DateOnly(2023, 1, 3), new DateOnly(2023, 1, 5), "somePath.json");
+
+            _apiClientMock.VerifyAll();
         }
 
         [Fact]
@@ -31,12 +41,12 @@ namespace CrownForecaster.Backend.ExchangeRatesImporter.Tests
 
         private ExchangeRatesImporter CreateImporter()
         {
-            return new ExchangeRatesImporter(_apiClientMock.Object, "some-access-key");
+            return new ExchangeRatesImporter(_apiClientMock.Object, _fxRateRepository.Object, _testAccessKey);
         }
 
         private ExchangeRatesImporter CreateImporterWithoutAccessKey()
         {
-            return new ExchangeRatesImporter(_apiClientMock.Object, null);
+            return new ExchangeRatesImporter(_apiClientMock.Object, _fxRateRepository.Object, null);
         }
     }
 }
