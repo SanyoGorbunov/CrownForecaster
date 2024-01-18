@@ -1,7 +1,12 @@
-﻿namespace CrownForecaster.Backend.ExchangeRatesImporter.Tests
+﻿using CrownForecaster.Backend.ExchangeRatesApiClient;
+using Moq;
+
+namespace CrownForecaster.Backend.ExchangeRatesImporter.Tests
 {
     public class ExchangeRatesImporterShould
     {
+        private Mock<IExchangeRatesApiClient> _apiClientMock = new Mock<IExchangeRatesApiClient>();
+
         [Fact]
         public async Task Import()
         {
@@ -11,19 +16,19 @@
         }
 
         [Fact]
-        public async Task Fail_WhenExchangeRatesApiAccessKeyIsNotPassed()
+        public void Fail_WhenExchangeRatesApiAccessKeyIsNotPassed()
         {
             Assert.Throws<ArgumentNullException>(() => CreateImporterWithoutAccessKey());
         }
 
-        private static ExchangeRatesImporter CreateImporter()
+        private ExchangeRatesImporter CreateImporter()
         {
-            return new ExchangeRatesImporter("some-access-key");
+            return new ExchangeRatesImporter(_apiClientMock.Object, "some-access-key");
         }
 
-        private static ExchangeRatesImporter CreateImporterWithoutAccessKey()
+        private ExchangeRatesImporter CreateImporterWithoutAccessKey()
         {
-            return new ExchangeRatesImporter(null);
+            return new ExchangeRatesImporter(_apiClientMock.Object, null);
         }
     }
 }

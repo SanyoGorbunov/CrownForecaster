@@ -1,11 +1,15 @@
-﻿namespace CrownForecaster.Backend.ExchangeRatesImporter;
+﻿using CrownForecaster.Backend.ExchangeRatesApiClient;
+
+namespace CrownForecaster.Backend.ExchangeRatesImporter;
 
 internal class ExchangeRatesImporter : IExchangeRatesImporter
 {
+    private IExchangeRatesApiClient _exchangeRatesApiClient;
     private string _exchangeRatesApiAccessKey;
 
-    public ExchangeRatesImporter(string? exchangeRatesApiAccessKey)
+    public ExchangeRatesImporter(IExchangeRatesApiClient exchangeRatesApiClient, string? exchangeRatesApiAccessKey)
     {
+        _exchangeRatesApiClient = exchangeRatesApiClient;
         _exchangeRatesApiAccessKey = exchangeRatesApiAccessKey ?? throw new ArgumentNullException(nameof(exchangeRatesApiAccessKey));
     }
 
