@@ -23,10 +23,15 @@ internal class ExchangeRatesImporter : IExchangeRatesImporter
         }
 
         DateOnly historicalDate = startDate;
+        var fxRates = new List<FxRate>();
         while (historicalDate <= endDate)
         {
             var fxRate = await _exchangeRatesApiClient.GetHistoricalFxRateWithBaseEur(CurrencyCode.CZK, historicalDate, _exchangeRatesApiAccessKey);
+            fxRates.Add(new FxRate(historicalDate, fxRate));
+
             historicalDate = historicalDate.AddDays(1);
         }
+
+        await _fxRateRepository.SaveFxRates(fxRates);
     }
 }

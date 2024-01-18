@@ -9,6 +9,8 @@ public static class ServiceCollectionExtensions
     {
         serviceCollection.RegisterExchangeRatesApiClient();
 
+        serviceCollection.AddSingleton<IFxRateRepository, FxRateRepository>();
+
         string? exchangeRatesApiAccessToken = Environment.GetEnvironmentVariable("EXCHANGE_RATES_API_ACCESS_KEY");
         serviceCollection.AddSingleton<IExchangeRatesImporter, ExchangeRatesImporter>(sp => new ExchangeRatesImporter(
             sp.GetRequiredService<IExchangeRatesApiClient>(),
