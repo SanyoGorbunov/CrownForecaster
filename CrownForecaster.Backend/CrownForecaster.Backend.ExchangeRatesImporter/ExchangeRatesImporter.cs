@@ -15,6 +15,11 @@ internal class ExchangeRatesImporter : IExchangeRatesImporter
 
     public Task ImportExchangeRates(DateOnly startDate, DateOnly endDate, string path)
     {
+        if (endDate < startDate)
+        {
+            throw new ArgumentException($"StartDate {startDate.ToShortDateString()} is later than EndDate {endDate.ToShortDateString()}");
+        }
+
         throw new NotImplementedException();
     }
 }
