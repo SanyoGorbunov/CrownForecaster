@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Amazon.CDK" Version="1.204.0" />
+    <PackageReference Include="Amazon.CDK.AWS.S3" Version="1.204.0" />
+  </ItemGroup>
+
 </Project>
