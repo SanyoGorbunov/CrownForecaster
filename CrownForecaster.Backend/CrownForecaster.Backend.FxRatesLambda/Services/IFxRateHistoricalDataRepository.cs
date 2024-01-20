@@ -6,6 +6,6 @@ namespace CrownForecaster.Backend.FxRatesLambda.Services
     {
         Task<FxRateHistoricalData> Get();
 
-        Task<FxRateHistoricalData> Save(FxRateHistoricalData historicalData);
+        Task Save(FxRateHistoricalData historicalData);
     }
 }

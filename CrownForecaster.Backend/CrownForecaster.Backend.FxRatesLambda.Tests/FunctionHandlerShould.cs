@@ -18,6 +18,7 @@ namespace CrownForecaster.Backend.FxRatesLambda.Tests
             var historicalDataWithPredicted = FxRateHistoricalData.CreateFromFxRates(null!);
 
             _historicalDataRepositoryMock.Setup(_ => _.Get()).ReturnsAsync(historicalData).Verifiable();
+            _historicalDataRepositoryMock.Setup(_ => _.Save(historicalDataWithPredicted)).Verifiable();
             _latestFxRateUpdaterServiceMock.Setup(_ => _.AddLatestFxRate(historicalData, "some-access-key")).ReturnsAsync(historicalDataWithLatest).Verifiable();
             _predictedFxRateUpdaterService.Setup(_ => _.AddPredictedFxRate(historicalDataWithLatest, 30)).Returns(historicalDataWithPredicted).Verifiable();
             var handler = CreateHandler();

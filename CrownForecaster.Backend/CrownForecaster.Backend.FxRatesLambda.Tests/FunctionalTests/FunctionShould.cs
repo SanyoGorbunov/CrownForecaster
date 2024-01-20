@@ -20,7 +20,7 @@ namespace CrownForecaster.Backend.FxRatesLambda.Tests.FunctionalTests
             lambdaFunction.ServiceCollection.Replace(ServiceDescriptor.Singleton<IAmazonS3>(_amazonS3Mock.Object));
             lambdaFunction.ServiceCollection.Replace(ServiceDescriptor.Singleton<IExchangeRatesApiClient>(_exchangeRatesApiClientMock.Object));
 
-            using var responseStream = await TestHelpers.StubStreamWithText("{\"firstDate\":\"2023-01-01\",\"lastDate\":\"2023-01-01\",\"rates\":[1]}");
+            using var responseStream = await TestHelpers.StubStreamWithText("{\"firstDate\":\"2023-01-01\",\"lastDate\":\"2023-01-10\",\"rates\":[1,2,3,4,5,6,7,8,9,10]}");
             _amazonS3Mock
                 .Setup(_ => _.GetObjectAsync(
                     It.Is<GetObjectRequest>(r =>
@@ -39,19 +39,23 @@ namespace CrownForecaster.Backend.FxRatesLambda.Tests.FunctionalTests
                 .ReturnsAsync(new PutObjectResponse { HttpStatusCode = HttpStatusCode.OK })
                 .Verifiable();
             _exchangeRatesApiClientMock.Setup(_ => _.GetLatestFxRateWithBaseEur(CurrencyCode.CZK, "some-access-key"))
-                .ReturnsAsync(2m).Verifiable();
+                .ReturnsAsync(11m).Verifiable();
 
             Environment.SetEnvironmentVariable("EXCHANGE_RATES_API_ACCESS_KEY", "some-access-key");
-            Environment.SetEnvironmentVariable("PREDICTION_HORIZON", "5");
+            Environment.SetEnvironmentVariable("PREDICTION_HORIZON", "1");
             await lambdaFunction.FunctionHandler(null!, null!);
 
             _amazonS3Mock.VerifyAll();
             _exchangeRatesApiClientMock.VerifyAll();
         }
 
-        private bool MatchInputStream(Stream inputStream)
+        private bool MatchInputStream(Stream stream)
         {
-            throw new NotImplementedException();
+            stream.Seek(0, SeekOrigin.Begin);
+            using var streamReader = new StreamReader(stream);
+            var serialized = streamReader.ReadToEnd();
+
+            return serialized == "{\"firstDate\":\"2023-01-01\",\"lastDate\":\"2023-01-11\",\"rates\":[1,2,3,4,5,6,7,8,9,10,11],\"predictedFxRate\":{\"date\":\"2023-01-12\",\"rate\":12}}";
         }
     }
 }

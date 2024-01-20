@@ -35,9 +35,15 @@ namespace CrownForecaster.Backend.FxRatesLambda.Services
             return historicalData;
         }
 
-        public Task<FxRateHistoricalData> Save(FxRateHistoricalData historicalData)
+        public async Task Save(FxRateHistoricalData historicalData)
         {
-            throw new NotImplementedException();
+            var model = _converter.ConvertToModel(historicalData);
+
+            var stream = new MemoryStream();
+            await JsonSerializer.SerializeAsync(stream, model);
+
+            var putObjectRequest = new PutObjectRequest { BucketName = BucketName, Key = ObjectKey, InputStream = stream };
+            await _amazonS3.PutObjectAsync(putObjectRequest);
         }
     }
 }

@@ -25,6 +25,8 @@ namespace CrownForecaster.Backend.FxRatesLambda
             var historicalDataWithLatest = await _latestFxRateUpdaterService.AddLatestFxRate(historicalData, exchangeRatesApiAccessKey);
 
             var historicalDataWithPredicted = _predictedFxRateUpdaterService.AddPredictedFxRate(historicalDataWithLatest, horizon);
+
+            await _historicalDataRepository.Save(historicalDataWithPredicted);
         }
     }
 }
