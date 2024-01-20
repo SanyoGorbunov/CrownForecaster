@@ -15,6 +15,7 @@ namespace CrownForecaster.Backend.FxRatesLambda
 
             services.AddSingleton<IFxRateHistoricalDataRepository, FxRateHistoricalDataRepository>();
             services.AddSingleton<IFunctionHandler, FunctionHandler>();
+            services.AddSingleton<ILatestFxRateUpdaterService, LatestFxRateUpdaterService>();
 
             return services;
         }
