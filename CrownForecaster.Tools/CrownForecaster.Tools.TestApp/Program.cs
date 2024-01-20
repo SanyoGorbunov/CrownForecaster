@@ -1,6 +1,8 @@
-﻿using CrownForecaster.Shared.ExchangeRatesApiClient;
+﻿using CrownForecaster.Shared.Domain.Models;
+using CrownForecaster.Shared.ExchangeRatesApiClient;
 using CrownForecaster.Shared.ML;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net.Http.Json;
 
 var serviceProvider = new ServiceCollection()
     .RegisterFxForecaster()
@@ -8,6 +10,9 @@ var serviceProvider = new ServiceCollection()
     .BuildServiceProvider();
 
 var fxForecaster = serviceProvider.GetRequiredService<IFxForecaster>();
+
+using var httpClient = new HttpClient();
+var model = await httpClient.GetFromJsonAsync<FxRateHistoricalDataModel>("https://crown-forecaster-historical-fx-rates.s3.eu-west-1.amazonaws.com/historicalFxRates.json");
 
 IEnumerable<FxRate> GenerateFxRates()
 {

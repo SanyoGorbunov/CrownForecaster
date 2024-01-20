@@ -1,4 +1,6 @@
-﻿namespace CrownForecaster.Tools.ExchangeRatesImporter;
+﻿using CrownForecaster.Shared.Domain.Models;
+
+namespace CrownForecaster.Tools.ExchangeRatesImporter;
 
 internal class FxRateHistoricalDataConverter : IFxRateHistoricalDataConverter
 {

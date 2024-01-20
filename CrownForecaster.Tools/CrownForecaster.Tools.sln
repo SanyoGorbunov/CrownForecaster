@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Shared.Exch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Shared.ML", "..\CrownForecaster.Shared\CrownForecaster.Shared.ML\CrownForecaster.Shared.ML.csproj", "{984E65DB-7D0D-4B5B-BC0B-9B7BC8495416}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Shared.Domain", "..\CrownForecaster.Shared\CrownForecaster.Shared.Domain\CrownForecaster.Shared.Domain.csproj", "{BB3E254B-B49C-4BD0-843D-6962BAD25440}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{984E65DB-7D0D-4B5B-BC0B-9B7BC8495416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{984E65DB-7D0D-4B5B-BC0B-9B7BC8495416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{984E65DB-7D0D-4B5B-BC0B-9B7BC8495416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB3E254B-B49C-4BD0-843D-6962BAD25440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3E254B-B49C-4BD0-843D-6962BAD25440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB3E254B-B49C-4BD0-843D-6962BAD25440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3E254B-B49C-4BD0-843D-6962BAD25440}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{ECE01325-A696-429F-8EE0-DF5966CBE07A} = {848281A5-2BE2-4CA2-818A-023D3AFF8F4B}
 		{1C963C71-2C35-479C-AF9E-9CE699A2FBF4} = {6744F043-98CF-43B1-8312-07ED9A6777E0}
 		{984E65DB-7D0D-4B5B-BC0B-9B7BC8495416} = {6744F043-98CF-43B1-8312-07ED9A6777E0}
+		{BB3E254B-B49C-4BD0-843D-6962BAD25440} = {6744F043-98CF-43B1-8312-07ED9A6777E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53AF0EF9-291F-4910-A433-A7A6F2C71C1C}
