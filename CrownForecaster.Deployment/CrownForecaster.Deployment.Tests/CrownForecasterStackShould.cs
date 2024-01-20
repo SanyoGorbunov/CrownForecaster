@@ -19,16 +19,41 @@ namespace CrownForecaster.Deployment.Tests
                 { "Properties", new Dictionary<string, object>
                 {
                     { "BucketName", "crown-forecaster-historical-fx-rates"},
-                    { "AccessControl", "PublicRead" },
                     { "PublicAccessBlockConfiguration", new Dictionary<string, object>
                     {
                         { "BlockPublicAcls", false },
                         { "BlockPublicPolicy", false },
                         { "IgnorePublicAcls", false },
                         { "RestrictPublicBuckets", false },
-                    }}
+                    }},
+                    { "OwnershipControls", new Dictionary<string, object>
+                    {
+                        { "Rules", new [] {
+                            new Dictionary<string, object>
+                            {
+                                { "ObjectOwnership", "ObjectWriter" }
+                            }
+                        } }
+                    } }
                 }
             } });
+
+            template.HasResource("AWS::S3::BucketPolicy", new Dictionary<string, object>
+            {
+                { "Properties", new Dictionary<string, object> {
+                    { "PolicyDocument", new Dictionary<string, object> {
+                        { "Statement", new[] {
+                            new Dictionary<string, object>
+                            {
+                                { "Effect", "Allow" },
+                                { "Principal", "*" },
+                                { "Action", "s3:GetObject" },
+                                { "Resource", "arn:aws:s3:::crown-forecaster-historical-fx-rates/*" }
+                            }
+                        } }
+                    } }
+                } }
+            });
         }
     }
 }
