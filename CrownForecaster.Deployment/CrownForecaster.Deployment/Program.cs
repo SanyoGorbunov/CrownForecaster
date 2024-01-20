@@ -8,6 +8,8 @@ namespace CrownForecaster.Deployment
         {
             var app = new App();
 
+            new CrownForecasterStack(app, "CrownForecasterStack");
+
             app.Synth();
         }
     }
