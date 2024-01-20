@@ -6,6 +6,15 @@ internal class FxRateHistoricalDataConverter : IFxRateHistoricalDataConverter
 {
     private const string DateFormat = "yyyy-MM-dd";
 
+    public FxRateHistoricalData ConvertFromModel(FxRateHistoricalDataModel model)
+    {
+        return FxRateHistoricalData.CreateFromStatistics(
+            DateOnly.ParseExact(model.FirstDate, DateFormat),
+            DateOnly.ParseExact(model.LastDate, DateFormat),
+            model.Rates.Select(r => (decimal)r),
+            model.PredictedFxRate is null ? null : new FxRate(DateOnly.ParseExact(model.PredictedFxRate.Date, DateFormat), (decimal)model.PredictedFxRate.Rate, true));
+    }
+
     public FxRateHistoricalDataModel ConvertToModel(FxRateHistoricalData historicalData)
     {
         return new FxRateHistoricalDataModel

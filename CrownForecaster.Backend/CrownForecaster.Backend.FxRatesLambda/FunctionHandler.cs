@@ -11,9 +11,9 @@ namespace CrownForecaster.Backend.FxRatesLambda
             _historicalDataRepository = historicalDataRepository;
         }
 
-        public Task Execute(string exchangeRatesApiAccessKey, int horizon)
+        public async Task Execute(string exchangeRatesApiAccessKey, int horizon)
         {
-            throw new NotImplementedException();
+            var historicalData = await _historicalDataRepository.Get();
         }
     }
 }

@@ -24,5 +24,22 @@
                 fxRate2 => Assert.Equal(new FxRate(new DateOnly(2023, 1, 14), 3.24m), fxRate2),
                 fxRate3 => Assert.Equal(new FxRate(new DateOnly(2023, 1, 15), 4.24m), fxRate3));
         }
+
+        [Fact]
+        public void HaveFxRates_WhenCreatedFromStatistics()
+        {
+            var historicalData = FxRateHistoricalData.CreateFromStatistics(
+                new DateOnly(2023, 1, 13),
+                new DateOnly(2023, 1, 15),
+                new[] { 2.24m, 3.24m, 4.24m },
+                new FxRate(new DateOnly(2023, 2, 15), 5.24m, true));
+
+            Assert.Equal(4, historicalData.FxRates.Count());
+            Assert.Collection(historicalData.FxRates,
+                fxRate1 => Assert.Equal(new FxRate(new DateOnly(2023, 1, 13), 2.24m), fxRate1),
+                fxRate2 => Assert.Equal(new FxRate(new DateOnly(2023, 1, 14), 3.24m), fxRate2),
+                fxRate3 => Assert.Equal(new FxRate(new DateOnly(2023, 1, 15), 4.24m), fxRate3),
+                fxRate4 => Assert.Equal(new FxRate(new DateOnly(2023, 2, 15), 5.24m, true), fxRate4));
+        }
     }
 }
