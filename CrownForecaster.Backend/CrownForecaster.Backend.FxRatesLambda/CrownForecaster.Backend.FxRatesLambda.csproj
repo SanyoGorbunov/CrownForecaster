@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\CrownForecaster.Shared\CrownForecaster.Shared.Domain\CrownForecaster.Shared.Domain.csproj" />
     <ProjectReference Include="..\..\CrownForecaster.Shared\CrownForecaster.Shared.ExchangeRatesApiClient\CrownForecaster.Shared.ExchangeRatesApiClient.csproj" />
+    <ProjectReference Include="..\..\CrownForecaster.Shared\CrownForecaster.Shared.ML\CrownForecaster.Shared.ML.csproj" />
   </ItemGroup>
 
 </Project>

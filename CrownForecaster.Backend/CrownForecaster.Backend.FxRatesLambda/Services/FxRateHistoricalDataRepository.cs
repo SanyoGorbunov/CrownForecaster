@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace CrownForecaster.Backend.FxRatesLambda.Services
 {
-    public class FxRateHistoricalDataRepository : IFxRateHistoricalDataRepository
+    internal class FxRateHistoricalDataRepository : IFxRateHistoricalDataRepository
     {
         private const string BucketName = "crown-forecaster-historical-fx-rates";
         private const string ObjectKey = "historicalFxRates.json";

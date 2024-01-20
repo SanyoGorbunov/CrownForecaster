@@ -3,7 +3,7 @@ using CrownForecaster.Shared.ExchangeRatesApiClient;
 
 namespace CrownForecaster.Backend.FxRatesLambda.Services
 {
-    public class LatestFxRateUpdaterService : ILatestFxRateUpdaterService
+    internal class LatestFxRateUpdaterService : ILatestFxRateUpdaterService
     {
         private readonly IExchangeRatesApiClient _exchangeRatesApiClient;
 
