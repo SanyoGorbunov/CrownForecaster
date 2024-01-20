@@ -6,7 +6,7 @@ namespace CrownForecaster.Deployment
 {
     public class CrownForecasterStack : Stack
     {
-        internal CrownForecasterStack(Construct scope, string id)
+        internal CrownForecasterStack(Construct scope, string id): base(scope, id)
         {
             var historicalFxRatesBucket = new Bucket(this, "HistoricalFxRatesBucket", new BucketProps
             {
