@@ -32,25 +32,26 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: 'eu-west-1'
 
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '6.0.x'
+    steps:
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
 
-    - name: Setup NodeJS Environment
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
+      - name: Setup NodeJS Environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-    - name: Install AWS CDK
-      run: npm i -g aws-cdk
+      - name: Install AWS CDK
+        run: npm i -g aws-cdk
 
-    - name: CDK Synth
-      run: |
-        cd './CrownForecaster.Deployment/CrownForecaster.Deployment'
-        cdk synth --require-approval=never
+      - name: CDK Synth
+        run: |
+          cd './CrownForecaster.Deployment/CrownForecaster.Deployment'
+          cdk synth --require-approval=never
 
-    - name: CDK Deploy
-      run: |
-        cd './CrownForecaster.Deployment/CrownForecaster.Deployment'
-        cdk deploy --require-approval=never
+      - name: CDK Deploy
+        run: |
+          cd './CrownForecaster.Deployment/CrownForecaster.Deployment'
+          cdk deploy --require-approval=never
