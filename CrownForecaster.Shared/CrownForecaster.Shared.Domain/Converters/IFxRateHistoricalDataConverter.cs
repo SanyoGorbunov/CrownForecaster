@@ -1,6 +1,6 @@
 ﻿using CrownForecaster.Shared.Domain.Models;
 
-namespace CrownForecaster.Tools.ExchangeRatesImporter;
+namespace CrownForecaster.Shared.Domain.Converters;
 
 public interface IFxRateHistoricalDataConverter
 {

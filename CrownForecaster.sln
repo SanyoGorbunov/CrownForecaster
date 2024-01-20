@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Backend.FxR
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Backend.FxRatesLambda.Tests", "CrownForecaster.Backend\CrownForecaster.Backend.FxRatesLambda.Tests\CrownForecaster.Backend.FxRatesLambda.Tests.csproj", "{FD5BEA89-5D99-48C5-97E0-175CF3E8AF1F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Shared.Domain.Tests", "CrownForecaster.Shared\CrownForecaster.Shared.Domain.Tests\CrownForecaster.Shared.Domain.Tests.csproj", "{37F3ACC7-1206-4E06-A568-AFCDE22040E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{FD5BEA89-5D99-48C5-97E0-175CF3E8AF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD5BEA89-5D99-48C5-97E0-175CF3E8AF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD5BEA89-5D99-48C5-97E0-175CF3E8AF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F3ACC7-1206-4E06-A568-AFCDE22040E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F3ACC7-1206-4E06-A568-AFCDE22040E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F3ACC7-1206-4E06-A568-AFCDE22040E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F3ACC7-1206-4E06-A568-AFCDE22040E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{2D74077B-389A-4923-A943-AB8EB84C3E06} = {6744F043-98CF-43B1-8312-07ED9A6777E0}
 		{AC6CD8CE-4722-4854-9DA6-6C7104B6E476} = {DAF8980C-BB06-480C-97B0-99F6BB7E74AC}
 		{FD5BEA89-5D99-48C5-97E0-175CF3E8AF1F} = {DAF8980C-BB06-480C-97B0-99F6BB7E74AC}
+		{37F3ACC7-1206-4E06-A568-AFCDE22040E8} = {6744F043-98CF-43B1-8312-07ED9A6777E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53AF0EF9-291F-4910-A433-A7A6F2C71C1C}

@@ -1,4 +1,5 @@
-﻿using CrownForecaster.Shared.ExchangeRatesApiClient;
+﻿using CrownForecaster.Shared.Domain;
+using CrownForecaster.Shared.ExchangeRatesApiClient;
 using Moq;
 
 namespace CrownForecaster.Tools.ExchangeRatesImporter.Tests

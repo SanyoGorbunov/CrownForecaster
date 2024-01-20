@@ -1,4 +1,6 @@
-﻿namespace CrownForecaster.Tools.ExchangeRatesImporter.Tests
+﻿using CrownForecaster.Shared.Domain.Converters;
+
+namespace CrownForecaster.Shared.Domain.Tests.Converters
 {
     public class FxRateHistoricalDataConverterShould
     {

@@ -1,4 +1,4 @@
-﻿namespace CrownForecaster.Tools.ExchangeRatesImporter.Tests
+﻿namespace CrownForecaster.Shared.Domain.Tests
 {
     public class FxRateHistoricalDataShould
     {

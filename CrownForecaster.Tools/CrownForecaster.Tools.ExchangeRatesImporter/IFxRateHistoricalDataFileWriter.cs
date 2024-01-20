@@ -1,4 +1,6 @@
-﻿namespace CrownForecaster.Tools.ExchangeRatesImporter;
+﻿using CrownForecaster.Shared.Domain;
+
+namespace CrownForecaster.Tools.ExchangeRatesImporter;
 
 public interface IFxRateHistoricalDataFileWriter
 {

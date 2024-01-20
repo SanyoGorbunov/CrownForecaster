@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using CrownForecaster.Shared.Domain;
+using CrownForecaster.Shared.Domain.Converters;
+using System.Text.Json;
 
 namespace CrownForecaster.Tools.ExchangeRatesImporter;
 

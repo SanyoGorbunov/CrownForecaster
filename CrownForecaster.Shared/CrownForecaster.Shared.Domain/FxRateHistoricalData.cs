@@ -1,4 +1,4 @@
-﻿namespace CrownForecaster.Tools.ExchangeRatesImporter;
+﻿namespace CrownForecaster.Shared.Domain;
 
 public class FxRateHistoricalData
 {
