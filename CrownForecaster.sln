@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Deployment"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Deployment.Tests", "CrownForecaster.Deployment\CrownForecaster.Deployment.Tests\CrownForecaster.Deployment.Tests.csproj", "{D0469A0E-7400-4B39-A0C2-869C1D12F41F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrownForecaster.Shared.Domain", "CrownForecaster.Shared\CrownForecaster.Shared.Domain\CrownForecaster.Shared.Domain.csproj", "{2D74077B-389A-4923-A943-AB8EB84C3E06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{D0469A0E-7400-4B39-A0C2-869C1D12F41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0469A0E-7400-4B39-A0C2-869C1D12F41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0469A0E-7400-4B39-A0C2-869C1D12F41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D74077B-389A-4923-A943-AB8EB84C3E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D74077B-389A-4923-A943-AB8EB84C3E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D74077B-389A-4923-A943-AB8EB84C3E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D74077B-389A-4923-A943-AB8EB84C3E06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{F33EC695-FAD7-4866-B664-82E8274A6C89} = {19E2C89A-0028-4E55-B1C0-33EE9CAD4E71}
 		{1415BD94-E555-4D7D-8BB1-C5E75C3A53B1} = {88065810-902C-4118-B13A-FAE3D49D8312}
 		{D0469A0E-7400-4B39-A0C2-869C1D12F41F} = {88065810-902C-4118-B13A-FAE3D49D8312}
+		{2D74077B-389A-4923-A943-AB8EB84C3E06} = {6744F043-98CF-43B1-8312-07ED9A6777E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53AF0EF9-291F-4910-A433-A7A6F2C71C1C}
