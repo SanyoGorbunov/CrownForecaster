@@ -1,6 +1,7 @@
 ﻿using Amazon.S3;
 using CrownForecaster.Backend.FxRatesLambda.Services;
 using CrownForecaster.Shared.Domain;
+using CrownForecaster.Shared.ExchangeRatesApiClient;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CrownForecaster.Backend.FxRatesLambda
@@ -10,6 +11,7 @@ namespace CrownForecaster.Backend.FxRatesLambda
         public static ServiceCollection RegisterServices(this ServiceCollection services)
         {
             services.RegisterDomainServices();
+            services.RegisterExchangeRatesApiClient();
 
             services.AddTransient<IAmazonS3, AmazonS3Client>(_ => new AmazonS3Client());
 
